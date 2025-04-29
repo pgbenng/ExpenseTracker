@@ -2,10 +2,8 @@ package server.entity;
 
 import jakarta.persistence.*;
 
-import java.io.Serializable;
-
 @MappedSuperclass
-public abstract class BaseEntity implements Serializable {
+public abstract class BaseEntity {
     @Id
     @SequenceGenerator(
             name = "GlobalSequence",
@@ -17,9 +15,5 @@ public abstract class BaseEntity implements Serializable {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 }

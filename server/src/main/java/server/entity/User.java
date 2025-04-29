@@ -3,7 +3,7 @@ package server.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "Users")
 public class User extends BaseEntity {
     @Column(nullable = false, unique = true)
     private String email;
@@ -12,9 +12,15 @@ public class User extends BaseEntity {
     private String password;
 
     @Column()
-    private String name;
+    private String firstName;
 
-    public User() { }
+    protected User() { }
+
+    public User(String email, String password, String firstName) {
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+    }
 
     public String getEmail() {
         return this.email;
@@ -32,11 +38,11 @@ public class User extends BaseEntity {
         this.password = password;
     }
 
-    public String getName() {
-        return this.name;
+    public String getFirstName() {
+        return this.firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 }

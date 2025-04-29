@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS Users(
-    id BIGSERIAL PRIMARY KEY,
+    id BIGINT DEFAULT nextval('GlobalIdSequence') PRIMARY KEY,
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    name VARCHAR(255)
-)
+    firstName VARCHAR(255)
+);

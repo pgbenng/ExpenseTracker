@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS ExpenseGroups;
+DROP TABLE IF EXISTS expense_groups;

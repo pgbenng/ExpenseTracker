@@ -1,4 +1,4 @@
-package server.entity;
+package server.api.entity;
 
 import jakarta.persistence.*;
 
@@ -9,20 +9,20 @@ import java.time.LocalDateTime;
 @Table(name = "Expenses")
 public class Expense extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "expenseGroupId")
+    @JoinColumn(name = "expense_group_id")
     private ExpenseGroup expenseGroup;
 
-    @Column(nullable = false)
+    @Column(name = "expense_name", nullable = false)
     private String expenseName;
 
     @Column(nullable = false, precision = 12, scale = 2)
     private BigDecimal amount;
 
-    @Column(nullable = false, insertable = false, updatable = false)
+    @Column(name = "date_created", nullable = false, insertable = false, updatable = false)
     private LocalDateTime dateCreated;
 
     protected Expense() { }

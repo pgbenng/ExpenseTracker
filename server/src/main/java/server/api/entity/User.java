@@ -1,6 +1,8 @@
-package server.entity;
+package server.api.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Users")
@@ -11,7 +13,7 @@ public class User extends BaseEntity {
     @Column(nullable = false)
     private String password;
 
-    @Column()
+    @Column(name = "first_name")
     private String firstName;
 
     protected User() { }

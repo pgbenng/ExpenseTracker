@@ -1,10 +1,10 @@
 CREATE TABLE IF NOT EXISTS Expenses(
-    id BIGINT DEFAULT nextval('GlobalIdSequence') PRIMARY KEY,
-    userId BIGINT NOT NULL,
-    expenseGroupId BIGINT DEFAULT NULL,
-    expenseName VARCHAR(255) NOT NULL,
+                                       id               BIGINT                DEFAULT nextval('global_id_sequence') PRIMARY KEY,
+                                       user_id          BIGINT       NOT NULL,
+                                       expense_group_id BIGINT                DEFAULT NULL,
+                                       expense_name     VARCHAR(255) NOT NULL,
     amount NUMERIC(12, 2) NOT NULL,
-    dateCreated TIMESTAMP NOT NULL DEFAULT NOW(),
-    FOREIGN KEY (userId) REFERENCES Users(id) ON DELETE CASCADE,
-    FOREIGN KEY (expenseGroupId) REFERENCES ExpenseGroups(id) ON DELETE SET DEFAULT
+                                       date_created     TIMESTAMP    NOT NULL DEFAULT NOW(),
+                                       FOREIGN KEY (user_id) REFERENCES Users (id) ON DELETE CASCADE,
+                                       FOREIGN KEY (expense_group_id) REFERENCES expense_groups (id) ON DELETE SET DEFAULT
 );

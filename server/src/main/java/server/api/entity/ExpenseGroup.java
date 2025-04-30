@@ -1,15 +1,15 @@
-package server.entity;
+package server.api.entity;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "ExpenseGroups")
+@Table(name = "expense_groups")
 public class ExpenseGroup extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column(name = "expenseGroupName", nullable = false)
+    @Column(name = "expense_group_name", nullable = false)
     private String expenseGroupName;
 
     @Column(name = "colour", nullable = false)

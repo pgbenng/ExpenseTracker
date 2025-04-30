@@ -1,4 +1,4 @@
-package server.entity;
+package server.api.entity;
 
 import jakarta.persistence.*;
 
@@ -7,7 +7,7 @@ public abstract class BaseEntity {
     @Id
     @SequenceGenerator(
             name = "GlobalSequence",
-            sequenceName = "GlobalIdSequence",
+            sequenceName = "global_id_sequence",
             allocationSize = 1
     )
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GlobalSequence")

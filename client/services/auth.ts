@@ -10,3 +10,7 @@ export function login(req: LoginRequest): Promise<AuthResponse> {
     .post<AuthResponse>("/api/users/login", req)
     .then((res) => res.data);
 }
+
+export function signOut(): Promise<void> {
+  return api.post<void>("/api/users/signout").then();
+}

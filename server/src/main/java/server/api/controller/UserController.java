@@ -40,4 +40,17 @@ public class UserController {
         res.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
         return ResponseEntity.ok(auth);
     }
+
+    @PostMapping("/signout")
+    public ResponseEntity<Void> signOut(HttpServletResponse res) {
+        ResponseCookie cookie = ResponseCookie.from("accessToken", "")
+                .httpOnly(true)
+                .secure(false)
+                .path("/")
+                .maxAge(0)
+                .sameSite("Lax")
+                .build();
+        res.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
+        return ResponseEntity.noContent().build();
+    }
 }

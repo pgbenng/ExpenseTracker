@@ -2,19 +2,22 @@
 
 import { FormEvent, useState } from "react";
 import { login } from "@/services/auth";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState<string | null>(null);
+  const router = useRouter();
 
   async function handleLogin(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setMessage(null);
 
     try {
-      const res = await login({ email, password });
+      await login({ email, password });
       setMessage("Success!");
+      setTimeout(() => router.push("/"), 500);
     } catch (e) {
       setMessage("Login failed!");
     }

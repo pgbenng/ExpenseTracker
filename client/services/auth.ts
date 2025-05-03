@@ -5,7 +5,8 @@ export function signup(req: SignupRequest): Promise<void> {
   return api.post<void>("/api/users/signup", req).then();
 }
 
-export async function login(req: LoginRequest): Promise<AuthResponse> {
-  const res = await api.post<AuthResponse>("/api/users/login", req);
-  return res.data;
+export function login(req: LoginRequest): Promise<AuthResponse> {
+  return api
+    .post<AuthResponse>("/api/users/login", req)
+    .then((res) => res.data);
 }
